@@ -78,5 +78,5 @@ let t2 = `I'm a
 let t3 = String.raw`I'm a \n IronMan`;
 
 console.log('t1:', t1); //t1: I'm a IronMan
-console.log('t2:', t2); //t2: I'm a (\n) IronMan
+console.log('t2:', t2); //t2: I'm a (\n) IronMan => 실제로 줄바꿈 이스케이프 시퀀스 문자 사용한 것 처럼 두 줄로 출력
 console.log('t3:', t3); //t3: I'm a \n IronMan
