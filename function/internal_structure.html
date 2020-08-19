@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    // var
+    var globalVariable = {
+        x: 10,
+        y: 20
+    }
+
+    // let, const
+    let globalVariable = {
+        x: 10,
+        y: 20
+    }
+
+    console.log(window.globalVariable); // Object {}
+
+    function f1(params) {
+        return params.x + params.y;
+    }
+
+    console.log(window.f1); // f1(params)
+</script>
+<body>
+
+</body>
+</html>
