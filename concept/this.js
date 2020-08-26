@@ -78,4 +78,15 @@ let introduceH1 = introduce.bind(h1);
 introduceH1("잘 들어~", "한 번 잘 지내보자"); // 잘 들어~! 내 이름은 준영이고 나이는 30살이야 한 번 잘 지내보자!
 
 
-
+// 중첩 함수 this
+// 중첩된 함수 y에서 this는 전역 객체인 window를 가리킨다.
+let x = {
+    a : function () {
+        console.log('x:', this); // x: {a: ƒ}
+        let y = function () {
+            console.log('y:', this); // y: Window{parent: Window, …}
+        }
+        y();
+    }
+}
+x.a();
