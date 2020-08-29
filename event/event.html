@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    // 버튼 위에 마우스 포인터 올렸을 때 버튼 색상이 blue, 벗어나면 red
+    window.onload = function () {
+        let btn3 = document.getElementById("btn3");
+        let btn5 = document.getElementById("btn5");
+
+        btn3.addEventListener("mouseover", function (e) {
+            e.currentTarget.style.backgroundColor = "blue";
+            btn3.addEventListener("mouseout", function (e) {
+                e.currentTarget.style.backgroundColor = "red";
+            }, false);
+            // red에서 blue로 색이 변경된 후 기존 이벤트 리스너 삭제
+            // 리스너가 익명 함수일 때는 removeEventListner에 arguments.callee를 넘김
+            btn3.removeEventListener("mouseover", arguments.callee, false);
+        }, false);
+
+        btn5.addEventListener("click", showInfo, false);
+        btn5.addEventListener("click", showInfo2, false);
+
+        // showInfo2 이벤트 삭제
+        btn5.removeEventListener("click", showInfo2, false);
+
+    };
+    function showInfo() {
+        console.log("클릭이벤트 로그");
+    }
+    function showInfo2() {
+        alert("클릭이벤트 알람창");
+    }
+</script>
+<body>
+    <button id="btn3">버튼</button>
+    <button id="btn5">버튼5</button>
+</body>
+</html>
