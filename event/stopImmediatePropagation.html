@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>stopImmediatePropagation</title>
+    <script>
+        window.onload = function () {
+            let div1 = document.getElementById("outer");
+            let div2 = document.getElementById("inner2");
+
+            div1.addEventListener("click", function (e) {
+                console.log("여기는 outer 캡쳐링");
+            }, true); // outer 이벤트 : 캡처링 단계에 실행
+
+            div1.addEventListener("click", function (e) {
+                console.log("여기는 outer 버블링");
+            }, false); // outer 이벤트 : 버블링 단계에 실행
+
+            div2.addEventListener("click", function (e) {
+                console.log("여기는 inner2 버블링1");
+                e.stopImmediatePropagation(); // 이벤트 전파를 즉시 정지
+            }, false);
+
+            div2.addEventListener("click", function (e) {
+                console.log("여기는 inner2 버블링2");
+            }, false);
+        }
+    </script>
+</head>
+<body>
+    <div id="outer">
+        outer
+        <div id="inner2">inner2</div>
+    </div>
+</body>
+</html>

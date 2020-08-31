@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>preventDefault</title>
+    <script>
+        window.onload = function () {
+            let anchor = document.getElementById("move-to");
+            anchor.addEventListener("click", function (e) {
+                if (!confirm("구글로 이동하시겠습니까?")) {
+                    e.preventDefault();
+                }
+            }, false);
+        }
+    </script>
+</head>
+<body>
+<div>
+    <a href="https://google.co.kr" id="move-to">구글 이동</a>
+</div>
+</body>
+</html>
