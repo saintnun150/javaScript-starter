@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            let button = document.getElementById("btn");
+
+            // 3. 해당 값을 사용
+            function changeBgColor(e, color) {
+                e.currentTarget.style.backgroundColor = color;
+            }
+
+            button.addEventListener("click", function (e) {
+                // 2. 익명함수 안에서 함수 호출 시 이벤트 객체와 원하는 파라미터 전달
+                changeBgColor(e, getColor());
+            }, false);
+        };
+
+        // 1. selectbox에서 색상 변경시 호출
+        function getColor() {
+            let selectedColor = document.getElementById("colorBox")
+                .options[document.getElementById("colorBox")
+                .selectedIndex].value;
+            return selectedColor;
+        }
+    </script>
+</head>
+<body>
+<select id="colorBox" onchange="getColor();">
+    <option value="" selected>선택</option>
+    <option value="red">red</option>
+    <option value="blue">blue</option>
+</select>
+<button id="btn">버튼</button>
+</body>
+</html>

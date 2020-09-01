@@ -78,3 +78,25 @@ window.onload = function () {
         }
     }, false);
 }
+
+
+// 이벤트 리스너에 이벤트 객체 외 인수 받기
+
+window.onload = function () {
+    let button = document.getElementById("btn");
+
+    function getColor() {
+        let selectedColor = document.getElementById("colorBox")
+            .options[document.getElementById("colorBox")
+            .selectedIndex].value;
+        return selectedColor;
+    }
+
+    function changeBgColor(e, color) {
+        e.currentTarget.style.backgroundColor = color;
+    }
+
+    button.addEventListener("click", function (e) {
+        changeBgColor(e, getColor());
+    }, false);
+};
