@@ -101,3 +101,23 @@ let mammal = new Animal("호랑이", "육식동물"); // Animal{name: "호랑이
 // 4. yield 키워드를 사용할 수 없다.
 // 제너레이터로 사용 불가
 
+
+// 객체 리터럴에서 화살표 함수로 메서드 정의
+let person = {
+    name: '탱구탱구',
+    sayHello: () => console.log(`${this}`)
+};
+
+person.sayHello(); // Object Window
+
+// Prototype에서 화살표 함수로 메서드 정의
+function Person(name) {
+    this.name = name;
+}
+
+Person.prototype.sayHello = () => {
+    console.log("안녕:", this);
+}
+
+let person = new Person("탱구탱구12");
+person.sayHello(); // 안녕: Window {parent: Window, opener: null, top: Window, length: 0, frames: Window, …}
