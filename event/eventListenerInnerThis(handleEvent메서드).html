@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>eventListenerInnerThis</title>
+    <script>
+        // addEventListner의 두번째 인수로 객체를 넘기고 handleEvent 메서드 정의하기
+        window.onload = function () {
+
+            function Student(name) {
+                this.name = name;
+            }
+
+            // 객체에 handleEvent 메서드 정의
+            Student.prototype.handleEvent = function () {
+                console.log(`소개글: ${this.name}`);
+            }
+
+            let s1 = new Student("탱구탱구");
+            let button = document.getElementById("btn");
+
+            button.addEventListener("click", s1, false);
+        }
+    </script>
+</head>
+<body>
+<button id="btn">버튼</button>
+</body>
+</html>

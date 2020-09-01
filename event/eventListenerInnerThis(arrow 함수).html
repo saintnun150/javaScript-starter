@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>eventListenerInnerThisArrow</title>
+    <script>
+        window.onload = function () {
+
+            function Student(name) {
+                this.name = name;
+                this.introduce = () => {
+                    console.log(`소개글: ${this.name}`);
+                }
+            }
+
+            /*Student.prototype.introduce = function () {
+                console.log(`소개글: ${this.name}`);
+            }*/
+
+            let s1 = new Student("탱구탱구");
+            let button = document.getElementById("btn");
+
+            button.addEventListener("click", s1.introduce, false);
+        }
+    </script>
+</head>
+<body>
+<button id="btn">버튼</button>
+</body>
+</html>
