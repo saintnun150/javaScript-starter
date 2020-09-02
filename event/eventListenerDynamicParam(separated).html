@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>eventListenerDynamicParam(separated)</title>
+    <script>
+        window.onload = function () {
+
+            let button = document.getElementById("btn");
+
+            button.addEventListener("click", changeBgColor, false);
+
+            function changeBgColor(e) {
+                let selectedColor = document.getElementById("colorBox")
+                    .options[document.getElementById("colorBox")
+                    .selectedIndex].value;
+                e.currentTarget.style.backgroundColor = selectedColor;
+            }
+        };
+    </script>
+</head>
+<body>
+<select id="colorBox">
+    <option value="" selected>선택</option>
+    <option value="red">red</option>
+    <option value="blue">blue</option>
+</select>
+<button id="btn">버튼</button>
+</body>
+</html>

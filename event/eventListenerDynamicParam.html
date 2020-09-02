@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>eventListerDynamicParam</title>
     <script>
         window.onload = function () {
             let button = document.getElementById("btn");
@@ -18,7 +18,7 @@
             }, false);
         };
 
-        // 1. selectbox에서 색상 변경시 호출
+        // 1. select 옵션에서 색상 가져오기
         function getColor() {
             let selectedColor = document.getElementById("colorBox")
                 .options[document.getElementById("colorBox")
@@ -28,7 +28,7 @@
     </script>
 </head>
 <body>
-<select id="colorBox" onchange="getColor();">
+<select id="colorBox">
     <option value="" selected>선택</option>
     <option value="red">red</option>
     <option value="blue">blue</option>
