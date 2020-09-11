@@ -38,3 +38,24 @@ deliveryInfo.city = "인천";
 
 console.log(address.city); // 인천
 console.log(deliveryInfo.city); // 인천
+
+
+// 메서드 체인
+// 객체.메서드1().메서드2().메서드3() ...
+
+let obj = {
+    budget: 1000,
+    receiveMoney: function () {
+        this.budget += 1000;
+        return this;
+    },
+    savingMoney: function (save) {
+        this.budget -= save;
+        return this;
+    },
+    showBudget: function () {
+        console.log(this.budget);
+    }
+};
+
+obj.receiveMoney().savingMoney(500).showBudget();
